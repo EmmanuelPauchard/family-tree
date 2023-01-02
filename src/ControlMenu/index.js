@@ -1,5 +1,5 @@
 import React from "react";
-import { Profile } from "../Flow/Profile";
+import { Profile } from "./Profile";
 
 import default_portrait from "../media/person_FILL0_wght400_GRAD0_opsz48.png";
 
@@ -42,7 +42,7 @@ function PersonInputDate(props) {
 function PersonInputPicture(props) {
     return (
         <PersonInputData key="Picture" input_text="Picture">
-            <input type="file" value={props.value} onChange={props.onChange}></input>
+            <input type="file" onChange={props.onChange}></input>
         </PersonInputData>
     );
 }
@@ -89,7 +89,7 @@ export class AddPersonMenu extends React.Component {
 
         // Provide default picture
         if (this.state.picture === "") {
-            picture = this.state.picture;
+            this.setState({picture: picture});
         }
 
         // Todo: check if reference to this.state is dangerous to use here

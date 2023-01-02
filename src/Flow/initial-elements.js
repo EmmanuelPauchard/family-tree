@@ -1,6 +1,4 @@
-import React from "react";
-import { MarkerType } from "reactflow";
-import { Profile } from "./Profile";
+import { Profile } from "../ControlMenu/Profile";
 
 import pict from "../media/Petyr_Baelish.webp"
 
