@@ -1,112 +1,43 @@
 import { Profile } from "../ControlMenu/Profile";
 
-import pict from "../media/Petyr_Baelish.webp"
+import steffon from "../media/Steffon_Baratheon.webp"
+import robert from "../media/525px-RobertBKingMagali_Villeneuve.webp"
+import renly from "../media/Renly_Baratheon.webp"
+import stannis from "../media/Stannis_Baratheon.webp"
 
 export const nodes = [
     {
         id: "1",
-        type: "input",
         data: {
-            label: Profile({name: "Peter Baelish", dates: "XX-UUU0", biopic: "A very interesting story", picture: pict})
+            label: Profile({name: "Steffon Baratheon", dates: "246 AC - 278 AC", biopic: "Steffon Baratheon was the Lord of Storm's End and the head of House Baratheon during the reign of kings Jaehaerys II and Aerys II Targaryen.", picture: steffon})
         },
         position: { x: 250, y: 0 }
     },
-    // {
-    //     id: "2",
-    //     data: {
-    //         label: (
-    //             <>
-    //                 This is a <strong>default node</strong>
-    //             </>
-    //         )
-    //     },
-    //     position: { x: 100, y: 100 }
-    // },
-    // {
-    //     id: "3",
-    //     data: {
-    //         label: (
-    //             <>
-    //                 This one has a <strong>custom style</strong>
-    //             </>
-    //         )
-    //     },
-    //     position: { x: 400, y: 100 },
-    //     style: {
-    //         background: "#D6D5E6",
-    //         color: "#333",
-    //         border: "1px solid #222138",
-    //         width: 180
-    //     }
-    // },
-    // {
-    //     id: "4",
-    //     position: { x: 250, y: 200 },
-    //     data: {
-    //         label: "Another default node"
-    //     }
-    // },
-    // {
-    //     id: "5",
-    //     data: {
-    //         label: "Node id: 5"
-    //     },
-    //     position: { x: 250, y: 325 }
-    // },
-    // {
-    //     id: "6",
-    //     type: "output",
-    //     data: {
-    //         label: (
-    //             <>
-    //                 An <strong>output node</strong>
-    //             </>
-    //         )
-    //     },
-    //     position: { x: 100, y: 480 }
-    // },
-    // {
-    //     id: "7",
-    //     type: "output",
-    //     data: { label: "Another output node" },
-    //     position: { x: 400, y: 450 }
-    // }
+    {
+        id: "2",
+        data: {
+            label: Profile({name: "Robert", dates: "283 AC - 298 AC", biopic: "Robert was crowned king after King Aerys II Targaryen was killed during Robert's Rebellion.", picture: robert})
+        },
+        position: { x: 50, y: 300 }
+    },
+    {
+        id: "3",
+        data: {
+            label: Profile({name: "Stannis", dates: "264 AC", biopic: "Stannis Baratheon is the head of House Baratheon of Dragonstone and the Lord of Dragonstone.", picture: stannis})
+        },
+        position: { x: 250, y: 300 }
+    },
+    {
+        id: "4",
+        data: {
+            label: Profile({name: "Renly", dates: "277 AC - 299 AC", biopic: "The younger brother of King Robert I and Lord Stannis, Renly serves as master of laws on Robert's small council.", picture: renly})
+        },
+        position: { x: 450, y: 300 }
+    },
 ];
 
 export const edges = [
-    // { id: "e1-2", source: "1", target: "2", label: "this is an edge label" },
-    // { id: "e1-3", source: "1", target: "3" },
-    // {
-    //     id: "e3-4",
-    //     source: "3",
-    //     target: "4",
-    //     animated: true,
-    //     label: "animated edge"
-    // },
-    // {
-    //     id: "e4-5",
-    //     source: "4",
-    //     target: "5",
-    //     label: "edge with arrow head",
-    //     markerEnd: {
-    //         type: MarkerType.ArrowClosed
-    //     }
-    // },
-    // {
-    //     id: "e5-6",
-    //     source: "5",
-    //     target: "6",
-    //     type: "smoothstep",
-    //     label: "smooth step edge"
-    // },
-    // {
-    //     id: "e5-7",
-    //     source: "5",
-    //     target: "7",
-    //     type: "step",
-    //     style: { stroke: "#f6ab6c" },
-    //     label: "a step edge",
-    //     animated: true,
-    //     labelStyle: { fill: "#f6ab6c", fontWeight: 700 }
-    // }
+    { id: "e1-2", source: "1", target: "2" },
+    { id: "e1-3", source: "1", target: "3" },
+    { id: "e1-4", source: "1", target: "4" },
 ];
