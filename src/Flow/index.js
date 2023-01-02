@@ -17,11 +17,22 @@ import {
 
 import { addChild } from "./FamilyMember";
 import { AddPersonMenu } from "../ControlMenu";
+import { EditPersonMenu } from "../ControlMenu/EditPerson";
 
 const defaultEdges = { type: 'smoothstep' };
 
+/**
+ * Create the hierarchy viewer based on reactflow
+ * Also creates a menu item using components from ControlMenu and a div element of class "sidebar"
+ * @returns a ReactFlow component
+ */
 const OverviewFlow = () => {
+  // Currently selected node
+  const [selectedNode, setSelectedNode] = useState("");
+  // Node Id counter
   const [maxId, setMaxId] = useState(10);
+
+  // Default reactflow handlers
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
   const onConnect = useCallback(
@@ -35,12 +46,23 @@ const OverviewFlow = () => {
     },
     [nodes, maxId, setNodes, setEdges]
   );
+
+  // Get selected node
+  // FIXME: impossible to unselect
   const onClick = useCallback(
     (e, n) => {
-      console.log("Clicked on ", n);
+      console.log("Clicked on ", n.data.name);
+      setSelectedNode(n.data.name);
     },
-    []
+    [setSelectedNode]
   )
+
+  // The person creation menu can be used to create a new person (root ancestor),
+  // add a child or update a person's data
+  // For now, we can only create a child
+  const add_child_or_new = (selectedNode === "" ?
+    "Add new person (WIP: select parent first)" :
+    "Add Child");
 
   return (
     <ReactFlow
@@ -56,10 +78,8 @@ const OverviewFlow = () => {
     >
       <Panel position="left">
         <div className="sidebar">
-          <h1>Currently Selected</h1>
-          <h2>Test</h2>
-          <h1>Create a new entry</h1>
-          <AddPersonMenu addNode={addNode}></AddPersonMenu>
+          <EditPersonMenu selected={selectedNode}></EditPersonMenu>
+          <AddPersonMenu addNode={addNode} title={add_child_or_new}></AddPersonMenu>
         </div>
       </Panel>
       <MiniMap

@@ -89,7 +89,7 @@ export class AddPersonMenu extends React.Component {
 
         // Provide default picture
         if (this.state.picture === "") {
-            this.setState({picture: picture});
+            this.setState({ picture: picture });
         }
 
         // Todo: check if reference to this.state is dangerous to use here
@@ -124,13 +124,16 @@ export class AddPersonMenu extends React.Component {
         ];
 
         return (
-            <form onSubmit={this.handleSubmit}>
-                {menu_items.map(e => e.item({ value: e.value, onChange: e.handler }))}
-                <input
-                    type="submit"
-                    value={"Add this person"}>
-                </input>
-            </form>
+            <div className="AddPersonMenu">
+                <h1>{this.props.title}</h1>
+                <form onSubmit={this.handleSubmit}>
+                    {menu_items.map(e => e.item({ value: e.value, onChange: e.handler }))}
+                    <input
+                        type="submit"
+                        value={"Add this person"}>
+                    </input>
+                </form>
+            </div>
         )
     }
 };
