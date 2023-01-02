@@ -16,7 +16,7 @@ import {
 } from "./initial-elements";
 
 import { addChild } from "./FamilyMember";
-import { AddPersonMenu } from "../ControlMenu";
+import { AddPersonMenu } from "../ControlMenu/AddPerson";
 import { EditPersonMenu } from "../ControlMenu/EditPerson";
 
 const defaultEdges = { type: 'smoothstep' };
