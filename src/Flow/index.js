@@ -17,12 +17,10 @@ import {
 
 import { addChild } from "./FamilyMember";
 import { AddPersonMenu } from "../ControlMenu";
-import { Profile } from "./Profile";
 
 const defaultEdges = { type: 'smoothstep' };
 
 const OverviewFlow = () => {
-  const [selectedNode, setSelectedNode] = useState(10);
   const [maxId, setMaxId] = useState(10);
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
